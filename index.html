@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To·Do·Market | Cria sua lista de compras</title>
+    <!--Link Icons Google-->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <!--Link Css-->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!--Pagina Principal-->
+    <main id="home">
+    <nav class="navbar-container">
+        <div class="navbar">
+            <h1>Purchase List</h1>
+            <span class="material-symbols-outlined">
+                more_horiz
+            </span>
+        </div>
+    </nav>
+
+    <section class="to-do-container">
+        <div class="total">
+            <h1>R$ 999,99</h1>
+        </div>
+        <div class="to-do-list">
+            <div class="to-do-list-card">
+                <div class="to-do-list-card-title">
+                    <h1>Title Test</h1>
+                </div>
+                <div class="to-do-list-card-price">
+                    <input type="text" pattern="\d+(\.\d{1,2})?" placeholder="Insira o Preço"
+                        title="Insira um preço válido (ex: 10.99)">
+                </div>
+                <div class="to-do-list-card-check">
+                    <p>info</p>
+                    <input type="checkbox" name="checkbox" id="checkbox">
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!--Botão Flutuante-->
+    <button type="button" class="floating-button" onclick="showCard()"> + </button>
+</main>
+
+<!--Card New Item-->
+    <section class="new-item-container" id="card-New-Item">
+        <div class="new-item-card">
+            <form>
+                <label for="name">Nome:</label>
+                <input type="text" id="product-name" name="name" placeholder="Insira o nome do produto" required>
+                <label for="quantity">Quantidade:</label>
+                <div class="quantity">
+                    <input type="text" id="product-quantity" placeholder="Insira a Quantidade">
+                    <select name="quantity" id="product-measure" required>
+                        <option value="Un">Un</option>
+                        <option value="Kg" selected>Kg</option>
+                        <option value="g">g</option>
+                        <option value="Cx">Cx</option>
+                    </select>
+                </div>
+                <label for="price">Preço:</label>
+                <input type="text" id="product-price" name="price" placeholder="Insira o preço do produto" pattern="\d+(\.\d{1,2})?">
+                <div class="new-item-card-btn">
+                <button type="button" id="add" onclick="addProduct()">Adicionar</button>
+                <button type="button" id="close" onclick="closeCard()">Fechar</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    
+   <script src="./script.js"></script>
+</body>
+
+</html>

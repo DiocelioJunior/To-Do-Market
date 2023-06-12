@@ -1,0 +1,231 @@
+@font-face {
+    font-family: 'Lato';
+    src: url('./assets/fonts/Lato-Regular.ttf') format('truetype');
+  }
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --bg-100: #f8f8fa;
+    --bg-200: #d6daec;
+    --text-100: #ffffff;
+    --text-200: #9A9993;
+    --text-300: #000000;
+    --btn-f-100:#ff63ff;
+    --btn-f-200:#FF00FF;
+
+}
+
+body{
+    font-family: 'Lato';
+    background-color: var(--bg-200);
+}
+
+.hide{
+    opacity: 0.1;
+}
+
+/*Barra de Navegação*/
+
+.navbar-container{
+    background-color: var(--bg-100);
+    border-radius: 5px;
+    margin: 2px;
+}
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 25px 30px;
+}
+
+.navbar h1{
+    font-size: 1.2rem;
+}
+
+/*To Do List*/
+.to-do-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.total{
+    width: 90%;
+    height: 70px;
+    margin: 5px 0px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color:var(--bg-100);
+}
+
+.to-do-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.to-do-list-card{
+    width: 90%;
+    height: 70px;
+    margin: 5px 0px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color:var(--bg-100);
+}
+
+.to-do-list-card-title{
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.to-do-list-card-title h1{
+    font-size: 1.2rem;
+}
+
+.to-do-list-card-price{
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.to-do-list-card-price input{
+    height: 30px;
+    width: 75%;
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+}
+
+.to-do-list-card-price input::placeholder{
+    text-align: center;
+}
+
+.to-do-list-card-price input:focus{
+    outline: none;
+}
+
+.to-do-list-card-check{
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/*Card para novo item*/
+.new-item-container{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.new-item-card{
+    width: 90%;
+    height: 350px;
+    background-color: var(--bg-100);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+}
+
+.new-item-card form{
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    gap: 5px;
+}
+
+.quantity{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.new-item-card label{
+    color: var(--btn-f-200);
+}
+
+.new-item-card input, select{
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+}
+
+.new-item-card input, select:focus{
+    outline: none;
+}
+
+.new-item-card-btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.new-item-card-btn button{
+    background-color: var(--btn-f-200);
+    border: none;
+    height: 30px;
+    width: 150px;
+    border-radius: 5px;
+    color: var(--text-100);
+    transition: all ease-in-out 0.5s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.new-item-card-btn button:hover{
+    background-color: var(--btn-f-100);
+}
+
+#add{
+    margin-top: 15px;
+}
+
+
+/*Botão Flutuante*/
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    transform: translateX(-50%);
+    background-color:var(--btn-f-200);
+    color:var(--text-100);
+    border: none;
+    border-radius: 50%;
+    padding: 16px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    transition: all ease-in-out 0.5s;
+  }
+
+  .floating-button:hover{
+    background-color: var(--btn-f-100);
+  }
