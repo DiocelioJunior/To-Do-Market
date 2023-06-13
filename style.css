@@ -11,6 +11,7 @@
 :root{
     --bg-100: #f8f8fa;
     --bg-200: #d6daec;
+    --bg-300: #ffffff;
     --text-100: #ffffff;
     --text-200: #9A9993;
     --text-300: #000000;
@@ -26,12 +27,17 @@ body{
 
 .hide{
     opacity: 0.1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#home{
+    transition: opacity 0.5s ease-in-out;
 }
 
 /*Barra de Navegação*/
 
 .navbar-container{
-    background-color: var(--bg-100);
+    background-color: var(--bg-300);
     border-radius: 5px;
     margin: 2px;
 }
@@ -40,12 +46,43 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 25px 30px;
+    align-items: center;
+    justify-items: center;
+    padding: 15px;
+    height: 50px;
 }
 
-.navbar h1{
-    font-size: 1.2rem;
+.navbar img{
+    width: 50%;
 }
+
+.navbar span{
+    color: var(--btn-f-200);
+}
+
+.total{
+    position: fixed;
+    bottom: 20px;
+    left: 80%;
+    width: 80px;
+    height: 40px;
+    transform: translateX(-50%);
+    border-radius: 25px;
+    border-bottom-right-radius: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    background-color:var(--btn-f-200);
+    color: var(--text-100);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.total h1{
+    font-size: 1.0rem;
+}
+
 
 /*To Do List*/
 .to-do-container{
@@ -54,18 +91,6 @@ body{
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-}
-
-.total{
-    width: 90%;
-    height: 70px;
-    margin: 5px 0px;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color:var(--bg-100);
 }
 
 .to-do-list{
@@ -88,6 +113,10 @@ body{
     background-color:var(--bg-100);
 }
 
+.disable{
+ opacity: 0.2;
+}
+
 .to-do-list-card-title{
     width: 35%;
     display: flex;
@@ -97,7 +126,16 @@ body{
 }
 
 .to-do-list-card-title h1{
-    font-size: 1.2rem;
+    font-size: 1rem;
+}
+
+.to-do-list-card-title p{
+    font-size: 0.8rem;
+}
+
+.to-do-list-card-check span{
+    font-size: 1.3rem;
+    color: var(--btn-f-200);
 }
 
 .to-do-list-card-price{
