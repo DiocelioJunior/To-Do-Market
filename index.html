@@ -46,7 +46,7 @@
     </section>
     
 <!--Card Flutuante Total-->
-<div class="total">
+<div class="total" id="total">
     <h1>R$ 999,99</h1>
 </div>
 <!--Botão Flutuante-->
@@ -78,6 +78,19 @@
             </form>
         </div>
     </section>
+
+    <div id="card-Edit-Price">
+        <form>
+        <h2>Editar Preço</h2>
+        <label for="edit-price">Preço:</label>
+        <input type="text" id="edit-price">
+        <input type="hidden" id="edit-index">
+        <div id="card-Edit-Price-Btn">
+        <button onclick="savePrice()">Salvar</button>
+        <button onclick="closeEditCard()">Fechar</button>
+        </div>
+    </form>
+      </div>
 
     
    <script src="./script.js"></script>

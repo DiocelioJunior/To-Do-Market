@@ -22,112 +22,120 @@ function closeCard() {
 
 updateProduct();
 
-// Função para adicionar um novo produto
+//Função para adicionar um novo produto
 function addProduct() {
     const productName = document.getElementById('product-name').value;
     const productQuantity = document.getElementById('product-quantity').value;
     const productMeasure = document.getElementById('product-measure').value;
     const productPrice = document.getElementById('product-price').value;
 
+
     const newProduct = {
         Nome: productName,
         Quantidade: productQuantity,
         Unidade: productMeasure,
-        Preço: productPrice,
-        purchased: false
+        Preço: productPrice
     };
 
     const items = JSON.parse(localStorage.getItem('products') || "[]");
 
     items.push(newProduct);
 
-    localStorage.setItem("products", JSON.stringify(items));
+    localStorage.setItem("products", JSON.stringify(items))
 
     productName.value = "";
     productQuantity.value = "";
     productMeasure.value = "";
     productPrice.value = "";
-
-    alert("Produto adicionado!");
-
-    updateProduct();
+    
+    alert("Produto adicionado!")
 }
 
 function deleteProduct(index) {
     const items = JSON.parse(localStorage.getItem('products') || "[]");
-    items.splice(index, 1);
+    items.splice(index, 1); 
 
     localStorage.setItem("products", JSON.stringify(items));
-
-    updateProduct();
-}
-
-function purchasedProduct(index) {
-    const items = JSON.parse(localStorage.getItem('products') || "[]");
-
-    items[index].purchased = true;
-
-    localStorage.setItem("products", JSON.stringify(items));
-
-    updateProduct();
+    
+    updateProduct(); 
 }
 
 function updateProduct() {
     const items = JSON.parse(localStorage.getItem('products') || "[]");
     const list = document.getElementById('list');
-  
+    const total = document.getElementById('total');
+    let totalPrice = 0;
+
     list.innerHTML = "";
-  
+
     items.forEach(function (newProduct, index) {
-      let purchasedClass;
-      if (newProduct.purchased) {
-        purchasedClass = 'disable';
-      } else {
-        purchasedClass = '';
-      }
-  
-      const cardId = `card_${index}`; // Cria um identificador único para cada card
-  
-      // Recupera o valor do input correspondente ao card
-      const inputValue = localStorage.getItem(cardId) || '';
-  
-      list.innerHTML += `
-        <div class="to-do-list-card ${purchasedClass}" id="${cardId}">
-            <div class="to-do-list-card-title">
-                <h1>${newProduct.Nome}</h1>
-                <p>${newProduct.Quantidade} ${newProduct.Unidade}</p>
-            </div>
-  
-            <div class="to-do-list-card-price">
-                <input type="text" pattern="\d+(\.\d{1,2})?" placeholder="Insira o Preço"
-                    title="Insira um preço válido (ex: 10.99)" value="${inputValue}" oninput="saveInputValue(event, '${cardId}')">
-            </div>
-  
+
+        list.innerHTML += `
+        <div class="to-do-list-card" id="card">
+                <div class="to-do-list-card-title">
+                    <h1>${newProduct.Nome}</h1>
+                    <p>${newProduct.Quantidade} ${newProduct.Unidade}</p>
+                </div>
+
             <div class="to-do-list-card-check">
-                <a href="#" onclick="deleteProduct(${index})"><span class="material-symbols-outlined">
-                    delete
+                <a href="#" onclick="deleteProduct()"><span class="material-symbols-outlined">
+                delete
                 </span></a>
                 <a href="#" onclick="purchasedProduct(${index})"><span class="material-symbols-outlined">
-                    check_circle
+                check_circle
                 </span></a>
+                <a href="#" onclick="editPrice(${index})"><span class="material-symbols-outlined">
+                edit
+                </span></a>
+
             </div> 
         </div>
-      `;
+        `
+
+        totalPrice += parseFloat(newProduct.Preço);    
     });
-  }
+
+    total.innerHTML = `
+    <h1>${totalPrice}</h1>
+    `;
+}
+
+
+function editPrice(index) {
+    const items = JSON.parse(localStorage.getItem('products') || "[]");
+    const product = items[index];
+    const card = document.getElementById('card-Edit-Price');
+    const home = document.getElementById('home');
   
-  function saveInputValue(event) {
-    const value = event.target.value;
-    localStorage.setItem("cardId", JSON.stringify(value));
+    card.style.display = 'flex';
+    home.classList.add('hide');
   
-    // Atualiza a lista após salvar o valor do input
- 
+    document.getElementById('edit-price').value = product.Preço;
+    document.getElementById('edit-index').value = index;
   }
   
 
-// Chama a função updateProduct() na inicialização da página
-document.addEventListener('DOMContentLoaded', function () {
+  function savePrice() {
+    const items = JSON.parse(localStorage.getItem('products') || "[]");
+    const index = document.getElementById('edit-index').value;
+    const product = items[index];
+  
+    product.Preço = document.getElementById('edit-price').value;
+  
+    localStorage.setItem("products", JSON.stringify(items));
+  
+    closeEditCard();
+  }
+  
+  function closeEditCard() {
+    const card = document.getElementById('card-Edit-Price');
+    const home = document.getElementById('home');
+  
+    card.style.display = 'none';
+    home.classList.remove('hide');
+  
     updateProduct();
-});
-
+  }
+  
+  
 
