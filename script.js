@@ -24,31 +24,36 @@ updateProduct();
 
 //Função para adicionar um novo produto
 function addProduct() {
-    const productName = document.getElementById('product-name').value;
-    const productQuantity = document.getElementById('product-quantity').value;
-    const productMeasure = document.getElementById('product-measure').value;
-    const productPrice = document.getElementById('product-price').value;
+    const productName = document.getElementById('product-name');
+    const productQuantity = document.getElementById('product-quantity');
+    const productMeasure = document.getElementById('product-measure');
+    const productPrice = document.getElementById('product-price');
+
 
 
     const newProduct = {
-        Nome: productName,
-        Quantidade: productQuantity,
-        Unidade: productMeasure,
-        Preço: productPrice
+        Nome: productName.value,
+        Quantidade: productQuantity.value,
+        Unidade: productMeasure.value,
+        Preço: productPrice.value.trim() || 0
     };
+
+
 
     const items = JSON.parse(localStorage.getItem('products') || "[]");
 
     items.push(newProduct);
 
     localStorage.setItem("products", JSON.stringify(items))
-
-    productName.value = "";
-    productQuantity.value = "";
-    productMeasure.value = "";
-    productPrice.value = "";
     
     alert("Produto adicionado!")
+
+    productName.value = " ";
+    productQuantity.value = " ";
+    productMeasure.value = " ";
+    productPrice.value = " ";
+
+    updateProduct();
 }
 
 function deleteProduct(index) {
@@ -92,11 +97,13 @@ function updateProduct() {
         </div>
         `
 
-        totalPrice += parseFloat(newProduct.Preço);    
+        totalPrice += parseFloat(newProduct.Preço.replace(',','.'));    
     });
 
+    const totalPriceInBRL = totalPrice.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
     total.innerHTML = `
-    <h1>${totalPrice}</h1>
+    <h1>${totalPriceInBRL}</h1>
     `;
 }
 
