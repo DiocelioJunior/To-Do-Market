@@ -83,7 +83,7 @@ function updateProduct() {
                 </div>
 
             <div class="to-do-list-card-check">
-                <a href="#" onclick="deleteProduct()"><span class="material-symbols-outlined">
+                <a href="#" onclick="deleteProduct(${index})"><span class="material-symbols-outlined">
                 delete
                 </span></a>
                 <a href="#" onclick="purchasedProduct(${index})"><span class="material-symbols-outlined">
