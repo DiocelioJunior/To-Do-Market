@@ -35,7 +35,7 @@ function addProduct() {
         Nome: productName.value,
         Quantidade: productQuantity.value,
         Unidade: productMeasure.value,
-        Preço: productPrice.value.trim() || 0
+        Preço: productPrice.value.trim() || "0"
     };
 
 
@@ -100,7 +100,7 @@ function updateProduct() {
         totalPrice += parseFloat(newProduct.Preço.replace(',','.'));    
     });
 
-    const totalPriceInBRL = totalPrice.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    let totalPriceInBRL = totalPrice.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
     total.innerHTML = `
     <h1>${totalPriceInBRL}</h1>
