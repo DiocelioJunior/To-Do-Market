@@ -1,6 +1,6 @@
-# Market Wise
+# To-Do-Market
 ## Descrição
-O Supermarket List App é um aplicativo móvel que permite aos usuários criar e gerenciar listas de compras de supermercado. Com este aplicativo, você pode adicionar produtos à sua lista, atribuir quantidades e preços a cada item e, em seguida, obter a soma total dos valores dos produtos. O aplicativo é projetado para simplificar o processo de compras e ajudá-lo a controlar seus gastos.
+O To Do Market é um aplicativo móvel que permite aos usuários criar e gerenciar listas de compras de supermercado. Com este aplicativo, você pode adicionar produtos à sua lista, atribuir quantidades e preços a cada item e, em seguida, obter a soma total dos valores dos produtos. O aplicativo é projetado para simplificar o processo de compras e ajudá-lo a controlar seus gastos.
 
 ## Aviso Importante
 Este aplicativo está atualmente disponível apenas para dispositivos móveis e não possui suporte total para todos os tamanhos de tela. Embora esteja funcional, pode haver problemas de responsividade em alguns dispositivos. Estamos trabalhando continuamente para melhorar a experiência do usuário e tornar o aplicativo totalmente responsivo em todas as plataformas.
